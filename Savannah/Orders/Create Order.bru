@@ -1,0 +1,19 @@
+meta {
+  name: Create Order
+  type: http
+  seq: 2
+}
+
+post {
+  url: 127.0.0.1:3000/orders/create/
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "item": "Web Hosting",
+    "amount": 5000,
+    "custimer_id": 1
+  }
+}
