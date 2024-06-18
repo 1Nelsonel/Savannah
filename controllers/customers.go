@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"net/http"
+
 	"github.com/1Nelsonel/Savannah/database"
 	"github.com/1Nelsonel/Savannah/models"
 	"github.com/gin-gonic/gin"
@@ -44,7 +45,12 @@ func CreateCustomer(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, customer)
+	context := gin.H{
+		"message": "Create a customer",
+		"customer": customer,
+	}
+
+	c.JSON(http.StatusOK, context)
 	
 }
 

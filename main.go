@@ -18,5 +18,5 @@ func main() {
 	// routes
 	routes.SetupRouter(r)
 
-	r.Run(":3000")
+	r.Run(":8080")
 }
