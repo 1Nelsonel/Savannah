@@ -3,6 +3,7 @@ package config
 import (
 	"context"
 	"log"
+	"os"
 
 	"github.com/coreos/go-oidc"
 	"golang.org/x/oauth2"
@@ -15,10 +16,10 @@ var (
 )
 
 func InitOIDC() {
-	issuer := "https://example.com" // Replace with your OIDC issuer URL
-	clientID := "your-client-id" // Replace with your OIDC client ID
-	clientSecret := "your-client-secret" // Replace with your OIDC client secret
-	redirectURL := "http://localhost:3000/callback" // Replace with your redirect URL
+	issuer := "https://accounts.google.com"
+	clientID := os.Getenv("GOOGLE_CLIENT_ID")
+	clientSecret := os.Getenv("GOOGLE_CLIENT_SECRET")
+	redirectURL := "http://localhost:8080/callback"
 
 	ctx := context.Background()
 	provider, err := oidc.NewProvider(ctx, issuer)
